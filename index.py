@@ -12,7 +12,7 @@ api = Api(app,
 
 slack = api.namespace('slack', description='Slash Commands for WarwickTECH Slack Bot')
 
-@slack.route('/codeofconduct')
+@slack.route('/codeofconduct', methods=['POST'])
 class CodeofConduct(Resource):
     def get(self):
         return {"text": "Here's the Code of Conduct: bit.ly/WT-CodeOfConduct"}
