@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_restplus import Resource, Api, fields
 from werkzeug.contrib.fixers import ProxyFix
 
@@ -14,8 +14,11 @@ slack = api.namespace('slack', description='Slash Commands for WarwickTECH Slack
 
 @slack.route('/codeofconduct', methods=['POST'])
 class CodeofConduct(Resource):
-    def get(self):
-        return {"text": "Here's the Code of Conduct: bit.ly/WT-CodeOfConduct"}
+    def post(self):
+        return jsonify(
+        response_type='in_channel',
+        text="Here's the Code of Conduct: bit.ly/WT-CodeOfConduct",
+        )
 
 if __name__ == '__main__':
     app.run(debug=True)
