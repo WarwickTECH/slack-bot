@@ -1,0 +1,21 @@
+from flask import Flask
+from flask_restplus import Resource, Api, fields
+from werkzeug.contrib.fixers import ProxyFix
+
+app = Flask(__name__)
+app.wsgi_app = ProxyFix(app.wsgi_app)
+api = Api(app,
+          version='0.1',
+          title='WarwickTECH API',
+          description='This is the API resource for WarwickTECH'
+)
+
+slack = api.namespace('slack', description='Slash Commands for WarwickTECH Slack Bot')
+
+@slack.route('/codeofconduct')
+class CodeofConduct(Resource):
+    def get(self):
+        return {"text": "Here's the Code of Conduct: bit.ly/WT-CodeOfConduct"}
+
+if __name__ == '__main__':
+    app.run(debug=True)

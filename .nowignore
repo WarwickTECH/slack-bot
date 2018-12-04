@@ -1,0 +1,6 @@
+README.md
+bin
+include
+lib
+.python-version
+pip-selfcheck.json
