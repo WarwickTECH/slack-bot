@@ -21,5 +21,15 @@ class CodeofConduct(Resource):
             text="bit.ly/WT-CodeOfConduct",
         )
 
+@slack.route('/expensepolicy', methods=['POST'])
+class ExpensePolicy(Resource):
+    def post(self):
+        return jsonify(
+            content_type='application/json',
+            response_type='in_channel',
+            text="bit.ly/WT-ExpensePolicy",
+        )
+
 if __name__ == '__main__':
     app.run(debug=True)
+
