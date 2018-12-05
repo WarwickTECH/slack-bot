@@ -16,9 +16,9 @@ slack = api.namespace('slack', description='Slash Commands for WarwickTECH Slack
 class CodeofConduct(Resource):
     def post(self):
         return jsonify(
-        content_type='application/json',
-        response_type='in_channel',
-        text="Here's the Code of Conduct: bit.ly/WT-CodeOfConduct",
+            content_type='application/json',
+            response_type='in_channel',
+            text="bit.ly/WT-CodeOfConduct",
         )
 
 if __name__ == '__main__':
